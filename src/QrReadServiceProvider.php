@@ -10,11 +10,11 @@ use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Features\SupportTesting\Testable;
+use Lucassigaki\QrRead\Commands\QrReadCommand;
+use Lucassigaki\QrRead\Testing\TestsQrRead;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Lucassigaki\QrRead\Commands\QrReadCommand;
-use Lucassigaki\QrRead\Testing\TestsQrRead;
 
 class QrReadServiceProvider extends PackageServiceProvider
 {
@@ -33,7 +33,7 @@ class QrReadServiceProvider extends PackageServiceProvider
             ->hasCommands($this->getCommands())
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
-                        ->askToStarRepoOnGitHub('lucassigaki/qr-read');
+                    ->askToStarRepoOnGitHub('lucassigaki/qr-read');
             });
 
         $configFileName = $package->shortName();
